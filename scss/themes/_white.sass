@@ -1,0 +1,14 @@
+.white-theme
+	background-color: black
+	.col
+		.cell
+			color: black
+			border: 1px solid #cccccc
+		&:nth-child(2n+1) .cell
+			background-color: #f8f8f8
+		&:nth-child(2n) .cell
+			background-color: #efefef
+		&.selected
+			.cell
+				color: #c42727
+				background-color: #eaea9c

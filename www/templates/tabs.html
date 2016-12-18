@@ -1,0 +1,40 @@
+<ion-side-menus>
+  <!-- Center content -->
+  <ion-side-menu-content>
+
+		<div ui-view="tab-kanas" ng-show="$state.includes('tab.kanas')"></div>
+
+		<div ui-view="tab-history" ng-show="$state.includes('tab.history')"></div>
+
+		<div ui-view="tab-freetext" ng-show="$state.includes('tab.freetext')"></div>
+
+		<div ui-view="tab-settings" ng-show="$state.includes('tab.settings')"></div>
+
+  </ion-side-menu-content>
+
+  <!-- Left menu -->
+  <ion-side-menu side="left">
+		<div class="list">
+			<a menu-close class="item item-icon-left" ui-sref="tab.kanas" ng-class="{'tab-item-active': $state.includes('tab.kanas')}">
+				<i class="icon ion-home"></i>
+				かなボード
+			</a>
+			<a menu-close class="item item-icon-left" ui-sref="tab.history" ng-class="{'tab-item-active': $state.includes('tab.history')}">
+				<i class="icon ion-clock"></i>
+				履歴
+			</a>
+			<a menu-close class="item item-icon-left" ui-sref="tab.freetext" ng-class="{'tab-item-active': $state.includes('tab.freetext')}">
+				<i class="icon ion-earth"></i>
+				FreeText
+			</a>
+			<a menu-close class="item item-icon-left" ui-sref="tab.settings" ng-class="{'tab-item-active': $state.includes('tab.settings')}">
+				<i class="icon ion-gear-b"></i>
+				設定
+			</a>
+		</div>
+  </ion-side-menu>
+
+</ion-side-menus>
+
+
+

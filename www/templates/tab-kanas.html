@@ -1,0 +1,47 @@
+<ion-content>
+
+	<div class="kanas-block barx">
+		<i class="icon icon ion-android-drawer button-menu" ng-click="toggleMenu()"></i>
+		<div class="kanas">
+			{{data.kanas}}
+			<span class="empty" ng-if="data.kanas == ''">(空白)</span>
+		</div>
+	</div>
+
+
+	<div class="kanaboard" ng-class="theme + '-theme'">
+		<div class="row" ng-repeat="line in board">
+			<div class="col" ng-repeat="cell in line" ng-class="{selected: cell.selected}">
+				<button class="button button-block cell" ng-if="cell.type != 'empty'" ng-click="clickEvent(cell)"  type="button">
+					{{getKana(cell)}}
+				</button>
+				<button class="button button-block" ng-if="cell.type == 'empty'">&nbsp;</button>
+			</div>
+		</div>
+	</div>
+
+
+</ion-content>
+
+<ion-footer-bar align-title="left" class="">
+	<div class="button-bar toolbar">
+		<a class="button icon-left ion-play button-balanced icon-only" ng-click="talk()" ng-class="{disabled: kanas.length == 0}">
+			<span>発音</span>
+		</a>
+		<a class="button icon-left ion-close-round button-assertive icon-only" ng-click="deleteAll()" ng-class="{disabled: kanas.length == 0}">
+			<span>全削除</span>
+		</a>
+		<a class="button icon-left ion-ios7-undo button-stable icon-only" ng-click="deleteLast()" ng-class="{disabled: kanas.length == 0}">
+			<span>前削除</span>
+		</a>
+
+		<a class="button" ng-click="tenten()" ng-class="{disabled: kanas.length == 0, 'button-royal': lastCell.tenten || lastCell.maru || lastCell.chiisai}">
+			<span>小&#12441;&nbsp;&nbsp;&#12442;&nbsp;&nbsp;</span>
+		</a>
+		<a class="button button-stable" ng-click="switchAlphabet()" ng-switch="alphabet">
+			<span ng-switch-when="hiragana">カタカナ</span>
+			<span ng-switch-when="katakana">ひらがな</span>
+		</a>
+
+	</div>
+</ion-footer-bar>

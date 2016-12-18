@@ -1,0 +1,38 @@
+<ion-header-bar class="bar-positive">
+	<div class="buttons">
+		<button class="button button-positive button-menu" menu-open ng-click="toggleMenu()">
+			<i class="icon icon ion-android-drawer"></i>
+		</button>
+		<button class="button button-icon icon ion-ios7-minus-outline" ng-click="ctrl.showDelete = !ctrl.showDelete"></button>
+		<h1 class="title">履歴</h1>
+	</div>
+</ion-header-bar>
+
+
+<ion-content class="has-header has-tabs">
+
+	<div class="card" ng-show="isHistoryEmpty">
+		<div class="item item-text-wrap">
+			まだ履歴はありません。
+		</div>
+	</div>
+	<!--<ion-list show-delete="ctrl.showDelete" ng-repeat="day in history.slice().reverse() | limitTo:5">-->
+	<ion-list show-delete="ctrl.showDelete" dir-paginate="day in history | itemsPerPage:ctrl.entriesPerPage">
+		<ion-item class="item-divider" type="item-text-wrap">
+			{{day.date | moment | momentFormat:'YYYY年 M月 D日 (dd)'}}
+		</ion-item>
+		<ion-item type="item-text-wrap" ng-repeat="entry in day.entries.slice().reverse() track by $index" ng-click="viewEntry(entry)">
+			<span class="positive">{{entry.date | momentFromNow}}</span>
+			{{getEntryText(entry)}}
+			<span ng-if="entry.counter > 1" class="badge badge-positive">{{entry.counter}} 回</span>
+		 	<ion-delete-button class="ion-minus-circled" ng-click="removeEntry(entry)"></ion-delete-button>
+		</ion-item>
+
+	</ion-list>
+
+</ion-content>
+
+<!--<ion-footer-bar align-title="center" class="">-->
+	<dir-pagination-controls template-url="templates/pagination-controls.html" ng-if="history.length > ctrl.entriesPerPage"></dir-pagination-controls>
+<!--</ion-footer-bar>-->
+<!--problem if ng-if is applied to ion-footer-bar: the last list element is hidden by the bar-->

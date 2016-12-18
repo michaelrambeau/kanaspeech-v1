@@ -1,0 +1,17 @@
+<div class="pagination tabs tabs-icon-only">
+
+	<a href class="tab-item" ng-click="setCurrent(1)" ng-class="{ disabled : pagination.current == 1 }">
+			<i class="icon ion-ios7-skipbackward"></i>
+	</a>
+	<a href class="tab-item" ng-click="setCurrent(pagination.current - 1)" ng-class="{ disabled : pagination.current == 1 }">
+		<i class="icon ion-ios7-rewind"></i>
+	</a>
+
+	<a class="tab-item" ng-click="setCurrent(pagination.current + 1)" ng-class="{ disabled : pagination.current == pagination.last }">
+		<i class="icon ion-ios7-fastforward"></i>
+	</a>
+	<a href class="tab-item" ng-click="setCurrent(pagination.last)" ng-class="{ disabled : pagination.current == pagination.last }">
+		<i class="icon ion-ios7-skipforward"></i>
+	</a>
+
+</div>

@@ -1,0 +1,38 @@
+<ion-header-bar class="bar-positive">
+	<div class="buttons">
+		<button class="button button-positive button-menu" menu-open ng-click="toggleMenu()">
+			<i class="icon icon ion-android-drawer"></i>
+		</button>
+		<h1 class="title">FreeText</h1>
+	</div>
+</ion-header-bar>
+
+<ion-content class="has-header">
+
+	<div class="list list-inset">
+		<label class="item item-input">
+			<textarea ng-model="data.freetext.text" placeholder="タップして下さい"></textarea>
+		</label>
+		<label class="item item-input item-select">
+			<div class="input-label">
+				<img class="flag" ng-src="img/flags/{{data.freetext.language}}.png" width="30" />
+				言語
+			</div>
+			<select ng-model="data.freetext.language">
+				<option value="en-US">英語</option>
+				<option value="ja">日本語</option>
+				<option value="fr">フランス語</option>
+			</select>
+		</label>
+		<div class="table-layout">
+			<div class="col-button-close">
+				<button class="button ion-close-round button-assertive icon-only button-close" ng-click="ctrl.delete()" ng-class="{disabled: data.freetext.text == ''}"></button>
+			</div>
+			<div>
+				<button class="button button-block icon-left ion-play button-balanced" ng-click="ctrl.talk()" ng-class="{disabled: data.freetext.text == ''}">発音</button>
+			</div>
+		</div>
+
+	</div>
+
+</ion-content>

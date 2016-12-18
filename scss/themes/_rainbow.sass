@@ -1,0 +1,12 @@
+$colours: #e62100 #e6a700 #e1e600 #5be600 #00e68f #00e6d2 #00b6e6 #7800e6 #dc00e6 #e600ac
+
+.rainbow-theme
+	.cell
+		border: 1px solid white
+	@for $i from 1 through length($colours)
+		.col:nth-child(#{$i}) .cell
+			background-color: darken(nth($colours, $i),5%)
+			color: white
+	.col.selected .cell
+		color: #c42727
+		background-color: #eaea9c

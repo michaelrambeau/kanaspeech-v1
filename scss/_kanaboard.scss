@@ -1,0 +1,114 @@
+
+$tablet-width: 600px;
+@mixin hidden-sm{
+	@media (max-width: $tablet-width - 1){
+			display: none;
+		}
+}
+
+.kanas-block{
+	margin: 3px 0 8px;
+	@media (min-width: $tablet-width) and (min-height: 800px ){
+		margin: 20px 10px;
+	}
+	.empty{
+		color: #999;
+	}
+	.kanas{
+		font-size: 20px;
+		line-height: 24px;
+		@media (min-height: 500px){
+			font-size: 32px;
+			line-height: 42px;
+		}
+	}
+
+}
+
+.kanaboard{
+	.row{
+		padding: 0px;
+	}
+	.col{
+		padding: 0;
+	}
+
+	.button{
+		padding: 0;
+		font-size: 24px;
+		min-width: inherit;
+		min-height: inherit;
+
+/*		@media screen and (min-width: $tablet-width) {
+			font-size: 28px;
+		}*/
+/*		@media screen and (min-width: $tablet-width) and (min-height: 600px ){
+			padding: 10px 12px;
+			font-size: 28px;
+		}*/
+		@media (min-height: 400px ){
+			padding: 5px 0;
+		}
+		@media (min-height: 450px ){
+			padding: 8px 0;
+			font-size: 30px;
+		}
+		@media (min-height: 500px ){
+			padding: 10px 0;
+			font-size: 32px;
+		}
+		@media (min-height: 550px ){
+			padding: 15px 0;
+			font-size: 34px;
+		}
+		@media (min-height: 600px ){
+			padding: 15px 0;
+			font-size: 36px;
+		}
+
+		margin: 0;
+		border-radius: 0;
+
+	}
+}
+
+//kanas action bar: play, delete, delete all, katakanas buttons
+.tab-kanas{
+	.bar-footer{
+		@media (min-height: 400px){
+			height: 64px;//overwrite 44px height
+		}
+	}
+}
+.toolbar{
+	.button{
+		@media (min-height: 400px){
+			padding: 10px 4px;//make buttons higher
+			font-size: 24px;
+		}
+		&.icon-only{
+			span{
+				@include hidden-sm();
+			}
+			&.icon-left:before {
+				float: none;
+			}
+		}
+
+	}
+}
+
+.button-menu{
+	float: left;
+	margin-right: 5px;
+	line-height: 26px;
+	min-height: 23px;
+	font-size: 26px;
+	padding: 0;
+	cursor: pointer;
+	@media (min-height: 500px){
+		margin-right: 10px;
+		font-size: 32px;
+		line-height: 42px;
+	}
+}

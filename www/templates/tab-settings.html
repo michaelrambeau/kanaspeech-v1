@@ -1,0 +1,53 @@
+<ion-header-bar class="bar-positive">
+	<div class="buttons">
+		<button class="button button-positive button-menu" menu-open ng-click="toggleMenu()">
+			<i class="icon icon ion-android-drawer"></i>
+		</button>
+		<h1 class="title">設定</h1>
+	</div>
+</ion-header-bar>
+
+<ion-content class="has-header">
+	<div class="list">
+
+		<div class="item item-divider">話す速さ ({{options.speed * 50 | number:0}}%)</div>
+
+		<div class="item range range-calm">
+			遅い
+			<input type="range" min="0.1" max="2" step="0.1" ng-model="options.speed" />
+			早い
+		</div>
+
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input type="text" ng-model="sample">
+			</label>
+			<button class="button button-block icon-left ion-play button-balanced" ng-click="playSample()">PLAY サンプル</button>
+		</div>
+
+
+
+	</div>
+
+	<div class="list">
+
+		<div class="item item-divider">かなボードの色</div>
+
+		<label class="item item-radio" ng-repeat="theme in themes" ng-click="changeTheme()">
+			<input type="radio" ng-model="options.theme" value="{{theme.value}}">
+			<div class="item-content">
+				<!--{{theme.text}}-->
+				<div class="kana-sample">
+					<div class="row" ng-class="theme.value + '-theme'">
+						<div class="col" ng-repeat="cell in kanaSample">
+							<div class="cell">{{cell.hiragana.text}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<i class="radio-icon ion-checkmark"></i>
+		</label>
+
+	</div>
+
+</ion-content>

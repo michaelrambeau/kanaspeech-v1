@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ionicframework.kanaspeech" version="0.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>かなスピーチ</name>
+  <description>
+      Enter words in Japanese using the hiragana keyboard, the app will say them.
+    </description>
+  <author email="michael.rambeau@gmail.com" href="http://michaelrambeau.com/">
+      Michael Rambeau
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <preference name="webviewbounce" value="true"/>
+  <preference name="UIWebViewBounce" value="true"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+
+	<platform name="android">
+		<icon src="icons/android/icon-36.png" width="36" height="36" />
+		<icon src="icons/android/icon-48.png" width="48" height="72" />
+		<icon src="icons/android/icon-72.png" width="72" height="72" />
+		<icon src="icons/android/icon-96.png" width="96" height="96" />
+		<icon src="icons/android/icon-144.png" width="144" height="144" />
+		<icon src="icons/android/icon-192.png" width="192" height="192" />
+	</platform>
+</widget>
